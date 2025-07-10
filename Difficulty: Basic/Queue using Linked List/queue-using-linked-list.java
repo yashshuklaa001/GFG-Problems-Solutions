@@ -17,25 +17,24 @@ class MyQueue
     //Function to push an element into the queue.
 	void push(int a)
 	{
-	    QueueNode node = new QueueNode(a);
+        QueueNode newNode = new QueueNode(a);
         if(front==null){
-            front=rear=node;
+            front=rear=newNode;
         }else{
-            rear.next=node;
-            rear=node;
+            rear.next=newNode;
+            rear=newNode;
         }
 	}
 	
     //Function to pop front element from the queue.
 	int pop()
 	{
-        if(front==null){
-            return -1;
-        }else{
-            int data = front.data;
-            front=front.next;
-            return data;
-        }
+	    if(front==null){
+	        return -1;
+	    }
+	    int data=front.data;
+	    front=front.next;
+	    return data;
 	}
 }
 
