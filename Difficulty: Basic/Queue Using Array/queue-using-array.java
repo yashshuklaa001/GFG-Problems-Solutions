@@ -19,7 +19,7 @@ class MyQueue {
         if(front==rear){
             return -1;
         }else{
-        return arr[front++];
+            return arr[front++];
         }
     }
 }
