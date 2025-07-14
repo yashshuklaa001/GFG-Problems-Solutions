@@ -18,7 +18,7 @@ class Solution {
         // return list;
         Stack<Integer> stack = new Stack<>();
         ArrayList<Integer> list = new ArrayList<>();
-        int n = arr.length-1;
+        int n=arr.length-1;
         for(int i=n;i>=0;i--){
             while(!stack.isEmpty() && stack.peek()<=arr[i]){
                 stack.pop();
