@@ -3,19 +3,17 @@ import java.util.*;
 class Solution {
     public int[] leftSmaller(int[] arr) {
         ArrayList<Integer> list = new ArrayList<>();
-        Stack<Integer> s = new Stack<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            while (!s.isEmpty() && s.peek() >= arr[i]) {
-                s.pop();
+        Stack<Integer> stack = new Stack<>();
+        for(int i=0;i<arr.length;i++){
+            while(!stack.isEmpty() && stack.peek()>=arr[i]){
+                stack.pop();
             }
-            list.add(s.isEmpty() ? -1 : s.peek());
-            s.push(arr[i]);
+            list.add(stack.isEmpty()?-1:stack.peek());
+            stack.push(arr[i]);
         }
-
-        int[] arrr = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            arrr[i] = list.get(i);
+        int arrr[]=new int[arr.length];
+        for(int i=0;i<arrr.length;i++){
+            arrr[i]=list.get(i);
         }
         return arrr;
     }
