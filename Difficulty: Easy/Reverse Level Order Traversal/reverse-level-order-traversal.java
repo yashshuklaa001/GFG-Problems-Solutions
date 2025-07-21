@@ -14,15 +14,15 @@ class Node
 
 class Tree {
     public ArrayList<Integer> reverseLevelOrder(Node root) {
-        ArrayList<Integer> result = new ArrayList<>();
-        if(root==null){
-            return result;
-        }
-        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
+        Queue<Node> queue = new LinkedList<>();
+        if(root==null){
+            return list;
+        }
         queue.add(root);
         while(!queue.isEmpty()){
-            Node current = queue.remove();
+            Node current = queue.poll();
             stack.push(current.data);
             if(current.right!=null){
                 queue.add(current.right);
@@ -32,8 +32,8 @@ class Tree {
             }
         }
         while(!stack.isEmpty()){
-            result.add(stack.pop());
+            list.add(stack.pop());
         }
-        return result;
+        return list;
     }
 }
