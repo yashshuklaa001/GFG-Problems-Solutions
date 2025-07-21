@@ -22,6 +22,6 @@ class Solution {
         int left = height(node.left);
         int right = height(node.right);
         int max = Math.max(left,right);
-    return max+1;
+        return max+1;
     }
 }
