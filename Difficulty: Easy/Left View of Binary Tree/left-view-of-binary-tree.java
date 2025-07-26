@@ -13,27 +13,23 @@ class Node
 class Solution {
     // Function to return list containing elements of left view of binary tree.
     ArrayList<Integer> leftView(Node root) {
-        ArrayList<Integer> result = new ArrayList<>();
-        if(root==null){
-            return result;
-        }
+        ArrayList<Integer> list = new ArrayList<>();
+        if (root == null) return list;
+
         Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while(!queue.isEmpty()){
-            int queueSize = queue.size();
-            for(int i=0;i<queueSize;i++){
-                Node currentNode = queue.poll();
-                if(i==0){
-                    result.add(currentNode.data);
-                }
-                if(currentNode.left!=null){
-                    queue.add(currentNode.left);
-                }
-                if(currentNode.right!=null){
-                    queue.add(currentNode.right);
-                }
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node current = queue.poll();
+                // first node of this level
+                if (i == 0) list.add(current.data);
+
+                if (current.left != null)  queue.offer(current.left);
+                if (current.right != null) queue.offer(current.right);
             }
         }
-        return result;
+        return list;
     }
 }
