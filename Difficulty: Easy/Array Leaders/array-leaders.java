@@ -1,17 +1,21 @@
-class Solution{
-static ArrayList<Integer> leaders(int arr[]) {
-    ArrayList<Integer> result = new ArrayList<>();
-    int maxFromRight = arr[arr.length - 1];
-    result.add(maxFromRight);
+import java.util.*;
 
-    for(int i = arr.length - 2; i >= 0; i--) {
-        if(arr[i] >= maxFromRight) {
-            maxFromRight = arr[i];
-            result.add(maxFromRight);
+class Solution {
+    static ArrayList<Integer> leaders(int arr[]) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int n = arr.length;
+
+        int currMax = arr[n - 1];
+        list.add(currMax);
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] >= currMax) {
+                currMax = arr[i];
+                list.add(currMax);
+            }
         }
-    }
 
-    Collections.reverse(result);
-    return result;
-}
+        Collections.reverse(list);
+        return list;
+    }
 }
