@@ -3,14 +3,16 @@
 class GFG {
     ArrayList<Integer> find(int arr[], int x) {
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(firstOccurence(arr,x));
-        list.add(lastOccurence(arr,x));
+        list.add(findFirst(arr,x));
+        list.add(findLast(arr,x));
         return list;
     }
-    public int firstOccurence(int arr[],int x){
-        int low=0,high=arr.length-1,ans=-1;
+    public int findFirst(int arr[],int x){
+        int low=0;
+        int high=arr.length-1;
+        int ans=-1;
         while(low<=high){
-            int mid = low+(high-low)/2;
+            int mid=low+(high-low)/2;
             if(arr[mid]==x){
                 ans=mid;
                 high=mid-1;
@@ -22,10 +24,12 @@ class GFG {
         }
         return ans;
     }
-    public int lastOccurence(int arr[],int x){
-        int low=0,high=arr.length-1,ans=-1;
+    public int findLast(int arr[],int x){
+        int low=0;
+        int high=arr.length-1;
+        int ans=-1;
         while(low<=high){
-            int mid = low+(high-low)/2;
+            int mid=low+(high-low)/2;
             if(arr[mid]==x){
                 ans=mid;
                 low=mid+1;
