@@ -1,27 +1,30 @@
 /*
-class DLLNode {
+class Node {
     int data;
-    DLLNode next;
-    DLLNode prev;
+    Node next;
+    Node prev;
 
-    DLLNode(int val) {
-        data = val;
-        next = null;
-        prev = null;
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
     }
 }
 */
 class Solution {
-    public DLLNode reverseDLL(DLLNode head) {
-        DLLNode prev = null;
-        DLLNode curr=head;
-        while(curr!=null){
-            DLLNode next=curr.next;
-            curr.next=prev;
-            prev=curr;
-            curr=next;
-            
+    public Node reverse(Node head) {
+        if(head==null || head.next==null){
+            return head;
         }
-        return prev;
+        Node prev=null;
+        Node current=head;
+        while(current!=null){
+            prev=current.prev;
+            current.prev=current.next;
+            current.next=prev;
+            
+            current=current.prev;
+        }
+        return prev.prev;
     }
 }
