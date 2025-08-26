@@ -1,20 +1,36 @@
-/* Structure of class Node is
-class Node
-{
+/*
+class Node {
     int data;
     Node next;
 
-    Node(int d)
-    {
+    Node(int d) {
         data = d;
         next = null;
     }
 }*/
 
 class Solution {
-    static Node reverse(Node head){
-        if(head==null) return null;
-        Node curr=head;
+    public boolean isPalindrome(Node head) {
+        if(head==null||head.next==null) return true;
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        Node newHead = reverse(slow);
+        Node first=head;
+        Node second = newHead;
+        while(second!=null){
+            if(first.data!=second.data){
+                return false;
+            }
+            first=first.next;
+            second=second.next;
+        }
+        return true;
+    }
+    public Node reverse(Node curr){
         Node prev=null;
         while(curr!=null){
             Node next=curr.next;
@@ -23,23 +39,5 @@ class Solution {
             curr=next;
         }
         return prev;
-    }
-    static boolean isPalindrome(Node head) {
-        Node slow=head;
-        Node fast=head;
-        while(fast.next!=null && fast.next.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-        }
-        Node p1 = reverse(slow.next);
-        Node p2 = head;
-        while(p1!=null && p2!=null){
-            if(p1.data!=p2.data){
-                return false;
-            }
-            p1=p1.next;
-            p2=p2.next;
-        }
-        return true;
     }
 }
