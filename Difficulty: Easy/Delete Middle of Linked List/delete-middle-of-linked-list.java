@@ -8,18 +8,17 @@ class Node {
 
 class Solution {
     Node deleteMid(Node head) {
-        if (head == null || head.next == null) {
+        if(head==null || head.next==null){
             return null;
         }
-        Node slow = head;
-        Node fast = head;
-        Node prev = null;
-        while (fast != null && fast.next != null) {
-            prev = slow;
-            slow = slow.next;
-            fast = fast.next.next;
+        Node slow=head;
+        Node fast=head;
+        fast=fast.next.next;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
         }
-        prev.next = slow.next;
+        slow.next=slow.next.next;
         return head;
     }
 }
