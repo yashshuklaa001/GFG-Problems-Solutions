@@ -4,18 +4,18 @@ class GfG {
         if(s.isEmpty()){
             return s;
         }
-        int top = s.pop();
+        int top=s.pop();
         sort(s);
-        dosort(top , s);
+        doSort(top,s);
         return s;
     }
-    static void dosort(int topValue ,Stack<Integer> s){
-        if(s.isEmpty() || s.peek()<topValue){
+    public void doSort(int topValue,Stack<Integer> s){
+        if(s.isEmpty()||s.peek()<topValue){
             s.push(topValue);
             return;
         }
-        int top = s.pop();
-        dosort(topValue, s);
+        int top=s.pop();
+        doSort(topValue,s);
         s.push(top);
     }
 }
