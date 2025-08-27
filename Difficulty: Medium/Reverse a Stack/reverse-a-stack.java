@@ -1,21 +1,20 @@
-// User function Template for Java
 
 class Solution {
-    static void reverse(Stack<Integer> s) {
-        if(s.isEmpty()){
+    static void reverse(Stack<Integer> St) {
+        if(St.isEmpty()){
             return;
         }
-        int top = s.pop();
-        reverse(s);
-        insertAtBottom(top , s);
+        int top=St.pop();
+        reverse(St);
+        insertAtBottom(top,St);
     }
-    static void insertAtBottom(int topValue , Stack<Integer> s){
-            if(s.isEmpty()){
-                s.push(topValue);
-                return;
-            }
-            int top = s.pop();
-            insertAtBottom(topValue,s);
-            s.push(top);
+    public static void insertAtBottom(int topValue,Stack<Integer> stack){
+        if(stack.isEmpty()){
+            stack.push(topValue);
+            return;
         }
+        int top=stack.pop();
+        insertAtBottom(topValue,stack);
+        stack.push(top);
+    }
 }
