@@ -1,9 +1,15 @@
 class Solution {
     void pushZerosToEnd(int[] arr) {
-        int index=0;
-        for(int num:arr){
-            if(num!=0) arr[index++] = num;
+        int j=0;
+        for(int i:arr){
+            if(i!=0){
+                arr[j]=i;
+                j++;
+            }
         }
-        while(index<arr.length) arr[index++]=0;
+        while(j<arr.length){
+            arr[j]=0;
+            j++;
+        }
     }
 }
